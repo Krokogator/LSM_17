@@ -34,6 +34,7 @@ public class StoperActivity extends AppCompatActivity {
         lapButton = (Button) findViewById(R.id.lapButton);
         isRunning = false;
         paused = false;
+
     }
 
     public void onClickStart(View view){
@@ -48,7 +49,11 @@ public class StoperActivity extends AppCompatActivity {
         isRunning = true;
 
         clearButton.setText("Stop");
-        t.start();
+
+        if(!t.isAlive()){
+            t.start();
+        }
+
 
     }
 
@@ -109,11 +114,6 @@ public class StoperActivity extends AppCompatActivity {
         lapList.setText("");
     }
 
-    public void openBrowser(View view){
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://google.com"));
-        if(intent.resolveActivity(getPackageManager()) != null){
-            startActivity(intent);
-        }
-    }
+
 
 }
