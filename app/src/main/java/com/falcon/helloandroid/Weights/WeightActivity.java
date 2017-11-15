@@ -12,7 +12,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.falcon.helloandroid.MainActivity;
 import com.falcon.helloandroid.R;
 
 import java.text.ParseException;
@@ -21,7 +20,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class WeightSQLite extends AppCompatActivity {
+public class WeightActivity extends AppCompatActivity {
 
     private TextView listTextView;
     private EditText inputWeight, inputDate;
@@ -36,7 +35,7 @@ public class WeightSQLite extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weight_sqlite);
+        setContentView(R.layout.activity_weight);
 
         listTextView = (TextView) findViewById(R.id.weightList);
         inputDate = (EditText) findViewById(R.id.inputDate);
@@ -64,7 +63,7 @@ public class WeightSQLite extends AppCompatActivity {
         inputDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new DatePickerDialog(WeightSQLite.this, inputDateListener, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+                new DatePickerDialog(WeightActivity.this, inputDateListener, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
     }
