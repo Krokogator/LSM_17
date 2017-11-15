@@ -80,7 +80,7 @@ public class StoperActivity extends AppCompatActivity {
 
     private void updateStoper(){
         long diff = Calendar.getInstance().getTime().getTime() - initialTime.getTime() + timeOffset;
-        long milis = diff / 10 % 60;
+        long milis = diff / 10 % 100;
         long seconds = diff / 1000 % 60;
         long minutes = diff / (60 * 1000) % 60;
         long hours = diff / (60 * 60 * 1000) % 60;

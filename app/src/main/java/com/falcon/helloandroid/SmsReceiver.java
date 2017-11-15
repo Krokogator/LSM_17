@@ -11,8 +11,6 @@ public class SmsReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast toast2 = Toast.makeText(context, "TOstyyyy", Toast.LENGTH_LONG);
-        toast2.show();
         Bundle bundle = intent.getExtras();
         String text = "";
         if (intent != null) {
