@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.falcon.helloandroid.Weights.WeightSQLite;
+import com.falcon.helloandroid.Weights.WeightActivity;
 
 import java.util.Random;
 
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickButtonWeight(View view){
-        Intent i = new Intent(this, WeightSQLite.class);
+        Intent i = new Intent(this, WeightActivity.class);
         startActivity(i);
     }
 }

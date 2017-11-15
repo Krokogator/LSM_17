@@ -32,7 +32,7 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".Weights.WeightSQLite"></activity>
+        <activity android:name=".Weights.WeightActivity"></activity>
     </application>
 
 </manifest>
