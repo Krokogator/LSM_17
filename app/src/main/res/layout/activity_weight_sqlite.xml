@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.falcon.helloandroid.Weights.WeightSQLite">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2"
+        android:rowCount="6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/weightList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_rowWeight="20"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="list"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/labelWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="center"
+            android:text="@string/weight"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/inputWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:ems="12"
+            android:inputType="numberDecimal"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/labelDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="center"
+            android:text="@string/date"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/inputDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:inputType="date"
+            android:ems="12"
+            android:text=""
+            android:clickable="true"
+            android:focusable="false"
+            android:onClick="DatePickerClick"/>
+
+        <Button
+            android:id="@+id/buttonAddWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:onClick="addWeight"
+            android:text="@string/add_weight" />
+
+        <Button
+            android:id="@+id/buttonDeleteWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:onClick="deleteWeight"
+            android:text="@string/delete_weight" />
+<!--
+        <Button
+            android:id="@+id/buttonRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:onClick="refresh"
+            android:text="@string/refresh" />
+-->
+    </GridLayout>
+</android.support.constraint.ConstraintLayout>

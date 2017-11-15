@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.falcon.helloandroid.Weights.WeightSQLite;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -90,5 +92,10 @@ public class MainActivity extends AppCompatActivity {
     public void testToast(View view){
         Toast toast = Toast.makeText(this, "Tościk!", Toast.LENGTH_LONG);
         toast.show();
+    }
+
+    public void onClickButtonWeight(View view){
+        Intent i = new Intent(this, WeightSQLite.class);
+        startActivity(i);
     }
 }
