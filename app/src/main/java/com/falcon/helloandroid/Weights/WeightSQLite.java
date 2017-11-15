@@ -141,12 +141,11 @@ public class WeightSQLite extends AppCompatActivity {
 
         String text = "";
         while(cursor.moveToNext()){
-            long itemID = cursor.getLong(cursor.getColumnIndexOrThrow(WeightDB._ID));
+            //long itemID = cursor.getLong(cursor.getColumnIndexOrThrow(WeightDB._ID));
             long date = cursor.getLong(cursor.getColumnIndexOrThrow(WeightDB.COLUMN_NAME_DATE));
             long weight = cursor.getLong(cursor.getColumnIndexOrThrow(WeightDB.COLUMN_NAME_WEIGHT));
-            text += String.valueOf(itemID) + "." +
-                    simpleDateFormat.format(date) + " " +
-                    String.format("%.1f", ((float) weight)/1000f) + "\n";
+            text += "Date : " + simpleDateFormat.format(date) + " " +
+                    "Weight: " + String.format("%.1f", ((float) weight)/1000f) + "kg\n";
         }
 
         listTextView.setText(text);
