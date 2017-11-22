@@ -66,8 +66,7 @@
             android:ems="12"
             android:text=""
             android:clickable="true"
-            android:focusable="false"
-            android:onClick="DatePickerClick"/>
+            android:focusable="false" />
 
         <Button
             android:id="@+id/buttonAddWeight"

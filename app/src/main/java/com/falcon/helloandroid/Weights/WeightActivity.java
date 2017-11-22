@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputFilter;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -56,7 +58,16 @@ public class WeightActivity extends AppCompatActivity {
             }
         };
 
+        DatePickerClick(null);
+
         fillDataFromSQLite();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.weight_settings, menu);
+        return true;
     }
 
     public void DatePickerClick(View view){
