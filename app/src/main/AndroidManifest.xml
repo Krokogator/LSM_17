@@ -32,7 +32,10 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".Weights.WeightActivity"></activity>
+        <activity android:name=".Weights.WeightActivity" />
+        <activity
+            android:name=".Weights.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>
