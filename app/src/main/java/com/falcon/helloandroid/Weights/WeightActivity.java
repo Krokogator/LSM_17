@@ -83,16 +83,12 @@ public class WeightActivity extends AppCompatActivity {
 
     private boolean updateMassUnit(){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        // then you use
+
         float new_mass_unit = Float.valueOf(prefs.getString("unit_pref", "1"));
         if(new_mass_unit != mass_unit){
-            Toast toast = Toast.makeText(this, "Wybrano: " + new_mass_unit, Toast.LENGTH_LONG);
             mass_unit = new_mass_unit;
-            toast.show();
             return true;
         }
-        Toast toast = Toast.makeText(this, "Wybrano: " + mass_unit, Toast.LENGTH_LONG);
-        toast.show();
         return false;
 
 
@@ -132,7 +128,7 @@ public class WeightActivity extends AppCompatActivity {
 
     public void addWeight(View view){
         int weightInGrams = 0;
-        weightInGrams = (int) (Float.valueOf(inputWeight.getText().toString())*1000);
+        weightInGrams = (int) ((int) (Float.valueOf(inputWeight.getText().toString())*1000)/mass_unit);
 
         long dateInInteger = 0;
         try {
@@ -197,12 +193,15 @@ public class WeightActivity extends AppCompatActivity {
         );
 
         String text = "";
+        String unit = "";
+        if(mass_unit == 1.0){ unit = "kg"; }
+        else { unit = "lbs"; }
         while(cursor.moveToNext()){
             //long itemID = cursor.getLong(cursor.getColumnIndexOrThrow(WeightDB._ID));
             long date = cursor.getLong(cursor.getColumnIndexOrThrow(WeightDB.COLUMN_NAME_DATE));
             long weight = cursor.getLong(cursor.getColumnIndexOrThrow(WeightDB.COLUMN_NAME_WEIGHT));
             text += "Date : " + simpleDateFormat.format(date) + " " +
-                    "Weight: " + String.format("%.1f", ((float) weight*mass_unit)/1000f) + "kg\n";
+                    "Weight: " + String.format("%.1f", ((float) weight*mass_unit)/1000f) + unit +"\n";
         }
 
         listTextView.setText(text);
