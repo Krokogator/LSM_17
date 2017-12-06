@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
-        android:title="Zmiana jednostek">
-        <CheckBoxPreference
-            android:key="jednostki"
-            android:title="Wybierz jednostkę wagi"
-            android:summary="Opis"/>
+        android:title="Ustawienia">
         <ListPreference
-            android:title="Select unit"
+            android:title="Zmiana jednostki wagi"
             android:key="unit_pref"
             android:entries="@array/units"
             android:entryValues="@array/units_values"

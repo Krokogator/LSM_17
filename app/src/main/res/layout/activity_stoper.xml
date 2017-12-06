@@ -86,13 +86,4 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/browserButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="openBrowser"
-        android:text="Halp"
-        tools:layout_editor_absoluteX="250dp"
-        tools:layout_editor_absoluteY="16dp" />
-
 </android.support.constraint.ConstraintLayout>
