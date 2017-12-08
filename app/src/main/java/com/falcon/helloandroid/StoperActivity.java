@@ -41,6 +41,10 @@ public class StoperActivity extends AppCompatActivity {
     }
 
     public void onClickStart(View view){
+        startStopWatch();
+    }
+
+    public void startStopWatch(){
         if(paused) {
             paused = false;
             this.initialTime.setTime(Calendar.getInstance().getTime().getTime() - timeOffset);
@@ -57,9 +61,8 @@ public class StoperActivity extends AppCompatActivity {
         if(!t.isAlive()){
             t.start();
         }
-
-
     }
+
 
     Thread t = new Thread() {
         @Override
@@ -125,8 +128,9 @@ public class StoperActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = saved.edit();
         editor.putLong("timeOffset", timeOffset);
         editor.putString("laps", lapList.getText().toString()); //FIX THIS!!!
-        //editor.putBoolean("isRunning", isRunning);
-        //editor.putBoolean("isPaused", paused);
+        editor.putLong("initialTime", initialTime.getTime());
+        editor.putBoolean("isRunning", isRunning);
+        editor.putBoolean("isPaused", paused);
         editor.apply();
     }
 
@@ -137,11 +141,19 @@ public class StoperActivity extends AppCompatActivity {
         this.timeOffset = saved.getLong("timeOffset", 0);
         this.lapList.append(saved.getString("laps", ""));
         this.initialTime.setTime(Calendar.getInstance().getTime().getTime() - timeOffset);
-        //this.isRunning = saved.getBoolean("isRunning", false);
-        //this.paused = saved.getBoolean("isPaused", true);
+        this.isRunning = saved.getBoolean("isRunning", false);
+        this.paused = saved.getBoolean("isPaused", true);
+
 
 
         updateStoper();
+        if(isRunning){
+            clearButton.setText("Stop");
+            initialTime.setTime(saved.getLong("initialTime", initialTime.getTime()));
+            if(!t.isAlive()){
+                t.start();
+            }
+        }
     }
 
 }
